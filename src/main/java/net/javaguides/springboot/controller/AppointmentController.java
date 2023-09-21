@@ -35,6 +35,26 @@ public class AppointmentController {
 		public List<Appointment> getAllAppointmentByDate(@PathVariable String date){
 			return appointmentRepository.findByDate(date);
 		}
+		@GetMapping("/appointments/person/{personid}")
+		public List<Appointment> getAllAppointmentByPersonId(@PathVariable int personId){
+			return appointmentRepository.findByPersonId(personId);
+		}	
+		@GetMapping("/appointments/person/date/{personid}/{date}")
+		public List<Appointment> getAllAppointmentByPersonIdAndDate(@PathVariable int personId,@PathVariable String date){
+			return appointmentRepository.findByPersonIdAndDate(personId, date);
+		}
+		@GetMapping("/appointments/person/doctor/{personid}/{doctorid}")
+		public List<Appointment> getAllAppointmentByPersonIdAndDoctorId(@PathVariable int personId,@PathVariable int doctorId){
+			return appointmentRepository.findByPersonIdAndDoctorId(personId, doctorId);
+		}
+		@GetMapping("/appointments/doctor/{doctorid}")
+		public List<Appointment> getAllAppointmentByDoctorId(@PathVariable int doctorId){
+			return appointmentRepository.findByDoctorId(doctorId);
+		}
+		@GetMapping("/appointments/doctor/date/{doctorid}/{date}")
+		public List<Appointment> getAllAppointmentByDoctorIdAndDate(@PathVariable int doctorId, @PathVariable String date){
+			return appointmentRepository.findByDoctorIdAndDate(doctorId, date);
+		}
 		
 		
 		@PostMapping("/appintments")
@@ -79,6 +99,7 @@ public class AppointmentController {
 			appointmentRepository.delete(appointment);
 			return "deleted";
 		}
+		
 		
 		
 	

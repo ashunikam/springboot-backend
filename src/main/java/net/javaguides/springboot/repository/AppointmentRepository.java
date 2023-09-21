@@ -10,4 +10,9 @@ import net.javaguides.springboot.model.Appointment;
 @Repository
 public interface AppointmentRepository extends JpaRepository<Appointment, Long>{
 	List<Appointment> findByDate(String date);
+	List<Appointment> findByPersonId(int id);
+	List<Appointment> findByPersonIdAndDate(int id, String date);
+	List<Appointment> findByPersonIdAndDoctorId(int personId, int doctorId);
+	List<Appointment> findByDoctorId(int doctorId);
+	List<Appointment> findByDoctorIdAndDate(int doctorId,String date);
 }
