@@ -84,6 +84,7 @@ public class AppointmentController {
 			
 			appointment.setTime(appointmentDetails.getTime());
 			appointment.setDate(appointmentDetails.getDate());
+			appointment.setDetail(appointmentDetails.getDetail());
 			
 			
 			Appointment updatedappointmentDetails = appointmentRepository.save(appointment);
